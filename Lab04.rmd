@@ -1,0 +1,87 @@
+---
+title: "Lecture_4_Distribution_of_RVs"
+author: "Parthsarthy Nandi"
+date: "2022-12-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+      download.file("http://www.openintro.org/stat/data/bdims.RData", destfile = "bdims.RData")
+      load("bdims.RData")
+      mdims <- subset(bdims, sex == 1)
+      fdims <- subset(bdims, sex == 0)
+
+```
+
+# On Your Own
+
+.Now let's consider some of the other variables in the body dimensions data set.
+ Using the figures at the end of the exercises, match the histogram to its normal probability plot. 
+ All of the variables have been standardized (first subtract the mean, then divide by the 
+ standard deviation), so the units won't be of any help.
+ If you are uncertain based on these figures, generate the plots in R to check. (B,C,D)
+
+a. The histogram for female biiliac (pelvic) diameter ( bii.di ) belongs to normal probability plot letter ____.
+```{r}
+      qqnorm(fdims$bii.di)
+      qqline(fdims$bii.di)
+```
+
+    B
+b. The histogram for female elbow diameter ( elb.di ) belongs to normal probability plot letter ____.
+```{r}
+      qqnorm(fdims$elb.di)
+      qqline(fdims$elb.di)
+```
+
+    C
+c. The histogram for general age ( age ) belongs to normal probability plot letter ____.
+```{r}
+      qqnorm(fdims$age)
+      qqline(fdims$age)
+```
+
+    D
+d. The histogram for female chest depth ( che.de ) belongs to normal probability plot letter ____.
+```{r}
+      qqnorm(fdims$che.de)
+      qqline(fdims$che.de)
+```
+
+    A
+.Note that normal probability plots C and D have a slight stepwise pattern.
+Why do you think this is the case?
+
+    In my opinion it is stepwise as both are related to time and stage of life of females.
+.As you can see, normal probability plots can be used both to assess normality and visualize skewness.
+Make a normal probability plot for female knee diameter ( kne.di ).
+Based on this normal probability plot, is this variable left skewed, symmetric, or right skewed?
+Use a histogram to confirm your findings.
+```{r}
+      qqnorm(fdims$kne.di)
+      qqline(fdims$kne.di)
+```
+```{r}
+      hist(fdims$kne.di, breaks = 15)
+```
+
+    Right Skewed after verifing with the hist. Which is prominent from Normal and supported by hist.
+B
+qqnorm(fdims$bii.di)
+qqline(fdims$bii.di)
+
+C
+qqnorm(fdims$elb.di)
+qqline(fdims$elb.di)
+
+D
+qqnorm(fdims$age)
+qqline(fdims$age)
+
+A
+qqnorm(fdims$che.de)
+qqline(fdims$che.de)
